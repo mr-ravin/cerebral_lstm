@@ -15,7 +15,7 @@ This repository contains experimental results and the comparitive study and impl
 
 ## Cerebral LSTM Architecture:
 
-![image](https://github.com/mr-ravin/cerebral-lstm/blob/master/CerebralLSTM.png?raw=true)
+![image](https://github.com/mr-ravin/cerebral-lstm/blob/main/CerebralLSTM.png?raw=true)
 
 ```
 Uf(t) = σ(Wuf ⋅ [h(t − 1), x(t)] + buf)
