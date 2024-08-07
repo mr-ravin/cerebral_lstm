@@ -31,6 +31,28 @@ Lo(t) = σ(Wlo ⋅ [h(t − 1), x(t)] + blo)
 h(t) = Uo(t) ∗ tanh(UC(t)) + Lo(t) ∗ tanh(LC(t))
 ```
 
+### Impact of Initialisation of Trainable Parameters in Cerebral LSTM
+The initial value of trainable parameters of upper and lower parts have impact onnumber of epochs required to train Cerebral LSTM cell. Ideally, upper and lowerparts should not have same initial values for their trainable parameters. 
+
+#### Identical initial trainable parameter values for upper and lower parts
+
+  `Initial Symmetry`: Upper and lower parts of the Cerebral LSTM process inputs identically, leading to similar cell states Uc(t) and Lc(t).
+
+  `Redundancy`: Initial representations of upper and lower parts are redundant, poten-tially under-utilizing the model’s capacity.
+
+  `Gradients`: Early training updates are similar, but divergence may occur over time,leading to different feature extraction.
+
+#### Different initial trainable parameter values for upper and lower parts
+
+  `Diverse Learning`: Upper and lower parts of Cerebral LSTM immediately capture different aspects of the data, enhancing representation diversity.
+
+  `Specialization`: Faster convergence and better utilization of the dual-path architec-ture, as each path can specialize in different features.
+
+  `Performance`: Improved performance due to richer, non-redundant representationsfrom the start. 
+
+#### Conclusion
+Our proposed recurrent cell ‘Cerebral LSTM’ showed the ability to better understanddata and has easily outperformed both single LSTM and two-stacked LSTM basedrecurrent neural networks. Many variants of Cerebral LSTM can be designed usingavailable varieties of LSTM cells such as peephole LSTM. Further research work canbe conducted on designing Cerebral LSTM based stacked recurrent neural networksfor designing deep learning architectures for understanding time-series data. Otherrecurrent cells including gated recurrent units can also be analyzed after modifying itsinternal connections similar to our cerebral structure. 
+
 #### Cite as:
 ```
 Kumar, R. Cerebral LSTM: A Better Alternative for Single- and Multi-Stacked LSTM Cell-Based RNNs. 
