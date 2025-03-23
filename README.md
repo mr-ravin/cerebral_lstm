@@ -118,7 +118,7 @@ The initial value of trainable parameters of upper and lower parts have impact o
     |
     |-data/                                     # This directory contains dataset used for comparison.
     |
-    |-loss_values/                              # Thisdirectory contains record of training loss for each model to perform comparative analysis.
+    |-loss_values/                              # This directory contains record of training loss for each model to perform comparative analysis.
           |
           |
           |- 2stack_lstm.txt 
