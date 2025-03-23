@@ -116,15 +116,12 @@ The initial value of trainable parameters of upper and lower parts have impact o
     For the training loss graphs present in the research paper, see the below structure:
     ```
     |
-    |-data/                                     # This directory contains dataset used for comparison.
+    |-data/                             # This directory contains dataset used for comparison.
     |
-    |-loss_values/                              # This directory contains record of training loss for each model to perform comparative analysis.
-          |
+    |-loss_values/                      # This directory contains record of training loss for each model to perform comparative analysis.
           |
           |- 2stack_lstm.txt 
-          |
           |- proposed_model.txt
-          |
           |- single_lstm.txt
     ```
     
