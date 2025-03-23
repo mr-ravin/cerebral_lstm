@@ -18,8 +18,8 @@ This repository provides `python package` for `pytorch` implementation of `Cereb
 - [Internet Archive](https://archive.org/details/cerebral-lstm-in-deep-learning-published-paper), [Internet Archive - Preprint](https://archive.org/details/cerebral-lstm-in-deep-learning--preprint-paper)
 
 #### Github Repositories: 
-- **Github Repository** (Python Package- Pytorch Implementation): [https://github.com/mr-ravin/cerebral_lstm](https://github.com/mr-ravin/cerebral_lstm)
-- **Github Repository** (Sentiment Analysis LSTM vs Cerebral LSTM): [https://github.com/mr-ravin/cerebral-rnn-experimental-results](https://github.com/mr-ravin/cerebral-rnn-experimental-results)
+- **Github Repository** (Python Package- Pytorch Implementation): [Python Package](https://github.com/mr-ravin/cerebral_lstm)
+- **Github Repository** (Sentiment Analysis LSTM vs Cerebral LSTM): [ML Experiments](https://github.com/mr-ravin/cerebral-rnn-experimental-results)
 
 ---
 
