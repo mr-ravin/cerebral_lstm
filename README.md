@@ -61,13 +61,22 @@ pip install git+https://github.com/mr-ravin/cerebral_lstm.git
 import torch
 from cerebral_lstm import CerebralLSTM
 
-# Create a Cerebral LSTM model
+# Create a Cerebral LSTM model, i.e. RNN  model with Cerebral LSTM cell unit
 model = CerebralLSTM(input_size=64, hidden_size=128, num_layers=2, dropout=0.5)
 
 # Input: (seq_len, batch_size, input_size)
 x = torch.randn(10, 32, 64)  # Example input
 output, hidden = model(x)
 print(output.shape)  # (10, 32, 128)
+```
+
+##### How to access only Cerebral LSTM cell unit ?
+```python
+import torch
+from cerebral_lstm import CerebralLSTM
+
+# Get only a single Cerebral LSTM cell unit
+lstm_cell_unit = CerebralLSTMCell(input_size, hidden_size, use_xavier=False)
 ```
 
 ---
