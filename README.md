@@ -21,6 +21,11 @@ This repository provides `python package` for `pytorch` implementation of `Cereb
 - **Github Repository** (Python Package- Pytorch Implementation): [Python Package](https://github.com/mr-ravin/cerebral_lstm)
 - **Github Repository** (Sentiment Analysis LSTM vs Cerebral LSTM): [ML Experiments](https://github.com/mr-ravin/cerebral-rnn-experimental-results)
 
+#### Cite Paper as:
+```
+Kumar, R. Cerebral LSTM: A Better Alternative for Single- and Multi-Stacked LSTM Cell-Based RNNs. SN COMPUT. SCI. 1, 85 (2020). https://doi.org/10.1007/s42979-020-0101-1
+```
+
 ---
 
 ## Cerebral LSTM Architecture:
@@ -87,7 +92,7 @@ The initial value of trainable parameters of upper and lower parts have impact o
 
   `Initial Symmetry`: Upper and lower parts of the Cerebral LSTM process inputs identically, leading to similar cell states Uc(t) and Lc(t).
 
-  `Redundancy`: Initial representations of upper and lower parts are redundant, poten-tially under-utilizing the model’s capacity.
+  `Redundancy`: Initial representations of upper and lower parts are redundant, potentially under-utilizing the model’s capacity.
 
   `Gradients`: Early training updates are similar, but divergence may occur over time,leading to different feature extraction.
 
@@ -99,15 +104,39 @@ The initial value of trainable parameters of upper and lower parts have impact o
 
   `Performance`: Improved performance due to richer, non-redundant representationsfrom the start. 
 
-----
+---
+**Experimentation Repository** in [https://github.com/mr-ravin/cerebral-rnn-experimental-results](https://github.com/mr-ravin/cerebral-rnn-experimental-results)
+
+- Comparative Study - Cerebral LSTM vs LSTM: 
+
+  `Pytorch Implementation of Cerebral LSTM` is available in `Cerebral_LSTM/Cerebral_LSTM_Implementation_in_Pytorch.ipynb` file.
+
+- Comparative Study Cerebral LSTM vs Stacked-LSTM vs LSTM (Logs only)
+    
+    For the training loss graphs present in the research paper, see the below structure:
+    ```
+    |
+    |-data 
+    |
+    |-loss_values
+          |
+          |
+          |- 2stack_lstm.txt 
+          |
+          |- proposed_model.txt
+          |
+          |- single_lstm.txt
+          
+    
+    - 'data' directory contains dataset used for comparison.
+    - 'loss_values' directory contains record of training loss for each model to perform comparative analysis.
+    ```
+    
+---
 #### Conclusion
 Our proposed recurrent cell ‘Cerebral LSTM’ showed the ability to better understand data and has easily outperformed both single LSTM and two-stacked LSTM based recurrent neural networks. Many variants of Cerebral LSTM can be designed using available varieties of LSTM cells such as peephole LSTM. Further research work can be conducted on designing Cerebral LSTM based stacked recurrent neural networks for designing deep learning architectures for understanding time-series data. Other recurrent cells including gated recurrent units can also be analyzed after modifying itsinternal connections similar to our cerebral structure. 
 
-#### Cite Paper as:
-```
-Kumar, R. Cerebral LSTM: A Better Alternative for Single- and Multi-Stacked LSTM Cell-Based RNNs. 
-SN COMPUT. SCI. 1, 85 (2020). https://doi.org/10.1007/s42979-020-0101-1
-```
+---
 
 Copyright License
 ```
