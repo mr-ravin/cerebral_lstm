@@ -58,10 +58,16 @@ pip install git+https://github.com/mr-ravin/cerebral_lstm.git
 
 ##### 🚀 Usage
 ```python
-import cerebral_lstm
-cerebral_lstm_cell = cerebral_lstm.cell()  # Cerebral LSTM Cell
-rnn_model = # RNN created using Cerebarl LSTM cell unit
+import torch
+from cerebral_lstm import CerebralLSTM
 
+# Create a Cerebral LSTM model
+model = CerebralLSTM(input_size=64, hidden_size=128, num_layers=2, dropout=0.5)
+
+# Input: (seq_len, batch_size, input_size)
+x = torch.randn(10, 32, 64)  # Example input
+output, hidden = model(x)
+print(output.shape)  # (10, 32, 128)
 ```
 
 ---
