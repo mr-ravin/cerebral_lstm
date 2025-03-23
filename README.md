@@ -77,7 +77,6 @@ print(output.shape)  # (10, 32, 128)
 
 ##### How to access only Cerebral LSTM cell unit ?
 ```python
-import torch
 from cerebral_lstm import CerebralLSTMCell
 
 # Get only a single Cerebral LSTM cell unit
