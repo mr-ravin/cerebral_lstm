@@ -35,7 +35,7 @@ class CerebralLSTMCell(nn.Module):
         self.init_weights()
 
     def init_weights(self):
-        """Initialize weights with soft complementarity if U and L are too similar"""
+        """Initialize weights with soft complementarity applied only to similar weights"""
         # Upper pathway initialization
         for param in [self.W_uf, self.W_ui, self.W_uo]:
             nn.init.kaiming_normal_(param, mode='fan_in', nonlinearity='sigmoid')
@@ -46,29 +46,21 @@ class CerebralLSTMCell(nn.Module):
             nn.init.kaiming_normal_(param, mode='fan_in', nonlinearity='sigmoid')
         nn.init.xavier_normal_(self.W_lc, gain=nn.init.calculate_gain('tanh'))
         
-        # Check if U and L are too similar (within atol=1e-4)
-        if self.are_pathways_too_similar(atol=1e-4):
-            print("Pathways are too similar. Applying soft complementarity.")
-            self.apply_soft_complementarity()
+        # Apply soft complementarity only to similar weights
+        self.apply_targeted_soft_complementarity(atol=1e-4)
 
-    def are_pathways_too_similar(self, atol=1e-4):
-        """Check if U and L pathways are too similar"""
+    def apply_targeted_soft_complementarity(self, atol=1e-4):
+        """Apply soft complementarity only to weights that are too similar"""
         with torch.no_grad():
-            return (
-                torch.allclose(self.W_uf, self.W_lf, atol=atol) or
-                torch.allclose(self.W_ui, self.W_li, atol=atol) or
-                torch.allclose(self.W_uc, self.W_lc, atol=atol) or
-                torch.allclose(self.W_uo, self.W_lo, atol=atol)
-            )
-
-    def apply_soft_complementarity(self):
-        """Apply soft complementarity to L pathway"""
-        with torch.no_grad():
-            # Add small random noise to L pathway weights
-            self.W_lf.add_(torch.randn_like(self.W_lf) * 0.1)
-            self.W_li.add_(torch.randn_like(self.W_li) * 0.1)
-            self.W_lo.add_(torch.randn_like(self.W_lo) * 0.1)
-            self.W_lc.add_(torch.randn_like(self.W_lc) * 0.1)
+            # Check and modify only the weights that are too similar
+            if torch.allclose(self.W_uf, self.W_lf, atol=atol):
+                self.W_lf.add_(torch.randn_like(self.W_lf) * 0.1)
+            if torch.allclose(self.W_ui, self.W_li, atol=atol):
+                self.W_li.add_(torch.randn_like(self.W_li) * 0.1)
+            if torch.allclose(self.W_uc, self.W_lc, atol=atol):
+                self.W_lc.add_(torch.randn_like(self.W_lc) * 0.1)
+            if torch.allclose(self.W_uo, self.W_lo, atol=atol):
+                self.W_lo.add_(torch.randn_like(self.W_lo) * 0.1)
 
     def forward(self, x, h_prev, cell_states):
         UC_prev, LC_prev = cell_states
