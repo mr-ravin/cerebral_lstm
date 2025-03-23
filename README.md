@@ -81,7 +81,7 @@ import torch
 from cerebral_lstm import CerebralLSTM
 
 # Get only a single Cerebral LSTM cell unit
-lstm_cell_unit = CerebralLSTMCell(input_size, hidden_size, use_xavier=True)
+lstm_cell_unit = CerebralLSTMCell(input_size=64, hidden_size=128, use_xavier=True)
 ```
 
 ---
@@ -116,9 +116,9 @@ The initial value of trainable parameters of upper and lower parts have impact o
     For the training loss graphs present in the research paper, see the below structure:
     ```
     |
-    |-data 
+    |-data                                     # This directory contains dataset used for comparison.
     |
-    |-loss_values
+    |-loss_values                              # directory contains record of training loss for each model to perform comparative analysis.
           |
           |
           |- 2stack_lstm.txt 
@@ -126,10 +126,6 @@ The initial value of trainable parameters of upper and lower parts have impact o
           |- proposed_model.txt
           |
           |- single_lstm.txt
-          
-    
-    - 'data' directory contains dataset used for comparison.
-    - 'loss_values' directory contains record of training loss for each model to perform comparative analysis.
     ```
     
 ---
