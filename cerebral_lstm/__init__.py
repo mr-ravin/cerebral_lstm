@@ -1,6 +1,8 @@
 import torch
 import torch.nn as nn
 
+__version__ = '1.0.1'
+
 class CerebralLSTMCell(nn.Module):
     def __init__(self, input_size, hidden_size, use_xavier=False):
         super(CerebralLSTMCell, self).__init__()
