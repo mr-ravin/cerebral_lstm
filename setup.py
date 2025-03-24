@@ -6,7 +6,7 @@ with open("README.md", "r", encoding="utf-8") as f:
 
 setup(
     name="cerebral_lstm",
-    version="0.1.0",  # Update this version number for new releases
+    version="1.1.1",  # Update this version number for new releases
     author="Ravin Kumar",
     author_email="mr.ravin_kumar@hotmail.com",  # Replace with your email
     description="A PyTorch implementation of Cerebral LSTM, a dual-pathway LSTM variant for sequence modeling.",
