@@ -1,10 +1,10 @@
 import torch
 import torch.nn as nn
 
-__version__ = '1.0.1'
+__version__ = '1.1.1'
 
 class CerebralLSTMCell(nn.Module):
-    def __init__(self, input_size, hidden_size, use_xavier=False):
+    def __init__(self, input_size, hidden_size, use_xavier=True):
         super(CerebralLSTMCell, self).__init__()
         self.hidden_size = hidden_size
         self.input_size = input_size
@@ -97,7 +97,7 @@ class CerebralLSTMCell(nn.Module):
         )
 
 class CerebralLSTM(nn.Module):
-    def __init__(self, input_size, hidden_size, num_layers=1, use_xavier=False, dropout=0.0):
+    def __init__(self, input_size, hidden_size, num_layers=1, use_xavier=True, dropout=0.0):
         super(CerebralLSTM, self).__init__()
         self.num_layers = num_layers
         self.dropout = nn.Dropout(dropout) if dropout > 0 else None
