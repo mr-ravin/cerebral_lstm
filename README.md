@@ -67,7 +67,7 @@ import torch
 from cerebral_lstm import CerebralLSTM
 
 # Create a Cerebral LSTM model, i.e. RNN  model with Cerebral LSTM cell unit
-model = CerebralLSTM(input_size=64, hidden_size=128, num_layers=2, use_xavier=True, dropout=0.5)
+model = CerebralLSTM(input_size=64, hidden_size=128, num_layers=2, use_xavier=True, dropout=0.5) # Default: use_xavier=True
 
 # Input: (seq_len, batch_size, input_size)
 x = torch.randn(10, 32, 64)  # Example input
@@ -80,7 +80,7 @@ print(output.shape)  # (10, 32, 128)
 from cerebral_lstm import CerebralLSTMCell
 
 # Get only a single Cerebral LSTM cell unit
-lstm_cell_unit = CerebralLSTMCell(input_size=64, hidden_size=128, use_xavier=True)
+lstm_cell_unit = CerebralLSTMCell(input_size=64, hidden_size=128, use_xavier=True) # Default: use_xavier=True
 ```
 
 ---
