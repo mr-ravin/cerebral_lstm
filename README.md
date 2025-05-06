@@ -50,6 +50,8 @@ h(t) = Uo(t) ∗ tanh(UC(t)) + Lo(t) ∗ tanh(LC(t))
 
 ### Python Package: Pytorch Implementation
 
+###### Tested with python version: >=3.7 and <= 3.13.2
+
 ##### 📥 Installation
 ```python
 pip install cerebral_lstm
