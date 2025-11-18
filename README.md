@@ -71,10 +71,10 @@ from cerebral_lstm import CerebralLSTM
 # Create a Cerebral LSTM model, i.e. RNN  model with Cerebral LSTM cell unit
 model = CerebralLSTM(input_size=64, hidden_size=128, num_layers=2, use_xavier=True, dropout=0.5) # Default: use_xavier=True
 
-# Input: (batch_size, seq_len, input_size)
-x = torch.randn(32, 10, 64)  # Example input
+# Input: (seq_len, batch_size, input_size)
+x = torch.randn(10, 32, 64)  # Example input
 output, hidden = model(x)
-print(output.shape)  # (32, 10, 128)
+print(output.shape)  # (10, 32, 128)
 ```
 
 ##### How to access only Cerebral LSTM cell unit ?
