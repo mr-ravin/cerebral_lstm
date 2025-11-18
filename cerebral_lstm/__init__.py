@@ -111,8 +111,8 @@ class CerebralLSTM(nn.Module):
         ])
         
     def forward(self, x, hidden_states=None):
-        """x: (seq_len, batch_size, input_size)"""
-        seq_len, batch_size, _ = x.size()
+        """x: (batch_size, seq_len, input_size)"""
+        batch_size, seq_len, _ = x.size()
         
         if hidden_states is None:
             hidden_states = [layer.init_hidden(batch_size) for layer in self.layers]
