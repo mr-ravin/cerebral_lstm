@@ -1,7 +1,7 @@
 import torch
 import torch.nn as nn
 
-__version__ = '1.1.1'
+__version__ = '1.1.2'
 
 class CerebralLSTMCell(nn.Module):
     def __init__(self, input_size, hidden_size, use_xavier=True):
